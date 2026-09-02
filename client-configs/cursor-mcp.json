@@ -1,0 +1,8 @@
+{
+  "mcpServers" : {
+    "weather-alerts-api" : {
+      "command" : "npx weather-alerts-api",
+      "args" : [ ]
+    }
+  }
+}

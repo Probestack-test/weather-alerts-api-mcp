@@ -1,0 +1,125 @@
+{
+  "slug" : "weather-alerts-api",
+  "name" : "Weather & Alerts API",
+  "description" : "",
+  "category" : "Developer Tools",
+  "transport" : "STREAMABLE_HTTP",
+  "serverUrl" : "http://localhost:3500/mcp",
+  "requiresAuth" : true,
+  "tools" : [ {
+    "name" : "getCurrentWeather",
+    "description" : "Returns the current temperature, conditions, and wind for a latitude/longitude pair.",
+    "inputSchema" : {
+      "type" : "object",
+      "properties" : {
+        "lat" : {
+          "type" : "number",
+          "description" : "Latitude of the location",
+          "in" : "query"
+        },
+        "lon" : {
+          "type" : "number",
+          "description" : "Longitude of the location",
+          "in" : "query"
+        },
+        "units" : {
+          "type" : "string",
+          "enum" : [ "METRIC", "IMPERIAL" ],
+          "default" : "METRIC",
+          "description" : "Unit system for the response",
+          "in" : "query"
+        }
+      },
+      "required" : [ "lat", "lon" ]
+    }
+  }, {
+    "name" : "getWeatherForecast",
+    "description" : "Returns a daily forecast for the given location for up to 14 days.",
+    "inputSchema" : {
+      "type" : "object",
+      "properties" : {
+        "lat" : {
+          "type" : "number",
+          "description" : "Latitude of the location",
+          "in" : "query"
+        },
+        "lon" : {
+          "type" : "number",
+          "description" : "Longitude of the location",
+          "in" : "query"
+        },
+        "days" : {
+          "type" : "integer",
+          "default" : 5,
+          "description" : "Number of forecast days to return (1-14)",
+          "in" : "query"
+        }
+      },
+      "required" : [ "lat", "lon" ]
+    }
+  }, {
+    "name" : "listActiveAlerts",
+    "description" : "Returns currently active severe-weather alerts (storms, floods, heat) for a named region.",
+    "inputSchema" : {
+      "type" : "object",
+      "properties" : {
+        "region" : {
+          "type" : "string",
+          "description" : "Region name or code to check for active alerts",
+          "in" : "query"
+        },
+        "severity" : {
+          "type" : "string",
+          "enum" : [ "MINOR", "MODERATE", "SEVERE", "EXTREME" ],
+          "description" : "Minimum severity to include",
+          "in" : "query"
+        }
+      },
+      "required" : [ "region" ]
+    }
+  }, {
+    "name" : "subscribeToAlerts",
+    "description" : "Registers an email address to receive notifications when new alerts are issued for a region.",
+    "inputSchema" : {
+      "type" : "object",
+      "properties" : {
+        "body" : {
+          "type" : "object",
+          "required" : [ "email", "region" ],
+          "properties" : {
+            "email" : {
+              "type" : "string",
+              "description" : "Email address to notify"
+            },
+            "region" : {
+              "type" : "string",
+              "description" : "Region name or code to watch"
+            },
+            "minSeverity" : {
+              "type" : "string",
+              "enum" : [ "MINOR", "MODERATE", "SEVERE", "EXTREME" ],
+              "description" : "Only notify for alerts at or above this severity"
+            }
+          },
+          "description" : "Request body",
+          "mediaType" : "application/json"
+        }
+      },
+      "required" : [ "body" ]
+    }
+  }, {
+    "name" : "unsubscribeFromAlerts",
+    "description" : "Removes an existing alert subscription by its ID.",
+    "inputSchema" : {
+      "type" : "object",
+      "properties" : {
+        "subscriptionId" : {
+          "type" : "string",
+          "description" : "Unique ID of the subscription to cancel",
+          "in" : "path"
+        }
+      },
+      "required" : [ "subscriptionId" ]
+    }
+  } ]
+}

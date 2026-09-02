@@ -1,0 +1,7 @@
+{
+  "server" : {
+    "name" : "weather-alerts-api",
+    "command" : "npx weather-alerts-api",
+    "transport" : "streamable-http"
+  }
+}

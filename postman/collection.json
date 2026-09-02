@@ -1,0 +1,104 @@
+{
+  "info" : {
+    "name" : "Weather & Alerts API",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id" : "2f709d07-3032-4012-824d-780b83e8aad0"
+  },
+  "item" : [ {
+    "name" : "initialize",
+    "request" : {
+      "method" : "POST",
+      "url" : {
+        "raw" : "http://localhost:3500/mcp"
+      },
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{}}"
+      }
+    }
+  }, {
+    "name" : "tools/call · getCurrentWeather",
+    "request" : {
+      "method" : "POST",
+      "url" : {
+        "raw" : "http://localhost:3500/mcp"
+      },
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"tools/call\",\"params\":{\"name\":\"getCurrentWeather\",\"arguments\":{}}}"
+      }
+    }
+  }, {
+    "name" : "tools/call · getWeatherForecast",
+    "request" : {
+      "method" : "POST",
+      "url" : {
+        "raw" : "http://localhost:3500/mcp"
+      },
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{\"jsonrpc\":\"2.0\",\"id\":3,\"method\":\"tools/call\",\"params\":{\"name\":\"getWeatherForecast\",\"arguments\":{}}}"
+      }
+    }
+  }, {
+    "name" : "tools/call · listActiveAlerts",
+    "request" : {
+      "method" : "POST",
+      "url" : {
+        "raw" : "http://localhost:3500/mcp"
+      },
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{\"jsonrpc\":\"2.0\",\"id\":4,\"method\":\"tools/call\",\"params\":{\"name\":\"listActiveAlerts\",\"arguments\":{}}}"
+      }
+    }
+  }, {
+    "name" : "tools/call · subscribeToAlerts",
+    "request" : {
+      "method" : "POST",
+      "url" : {
+        "raw" : "http://localhost:3500/mcp"
+      },
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{\"jsonrpc\":\"2.0\",\"id\":5,\"method\":\"tools/call\",\"params\":{\"name\":\"subscribeToAlerts\",\"arguments\":{}}}"
+      }
+    }
+  }, {
+    "name" : "tools/call · unsubscribeFromAlerts",
+    "request" : {
+      "method" : "POST",
+      "url" : {
+        "raw" : "http://localhost:3500/mcp"
+      },
+      "header" : [ {
+        "key" : "Content-Type",
+        "value" : "application/json"
+      } ],
+      "body" : {
+        "mode" : "raw",
+        "raw" : "{\"jsonrpc\":\"2.0\",\"id\":6,\"method\":\"tools/call\",\"params\":{\"name\":\"unsubscribeFromAlerts\",\"arguments\":{}}}"
+      }
+    }
+  } ]
+}

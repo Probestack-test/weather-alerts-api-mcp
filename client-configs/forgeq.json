@@ -1,0 +1,15 @@
+{
+  "name" : "weather-alerts-api",
+  "transport" : {
+    "kind" : "streamable-http",
+    "baseUrl" : "http://localhost:3500/mcp"
+  },
+  "auth" : {
+    "kind" : "bearer",
+    "headerName" : "Authorization",
+    "generatedToken" : "",
+    "oauth" : null,
+    "customMiddleware" : ""
+  },
+  "command" : "npx weather-alerts-api"
+}
