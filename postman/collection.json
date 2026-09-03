@@ -2,7 +2,7 @@
   "info" : {
     "name" : "Weather & Alerts API",
     "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_postman_id" : "2f709d07-3032-4012-824d-780b83e8aad0"
+    "_postman_id" : "fa6789ab-2a0e-4c0d-9bcf-3b5c6314f486"
   },
   "item" : [ {
     "name" : "initialize",
